@@ -85,7 +85,14 @@
 .dropdown-menu.active {
     visibility: visible; /* Tornar visível quando ativo */
 }
-
+.dropdown-menu button{
+    width: 80%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    left: 5px;
+}
 .dropdown-logout-btn {
     color: #fff;
     background: none;
