@@ -1,0 +1,110 @@
+/* src/styles/AddPerson.css */
+
+.add-person-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    display: none; /* Esconde o checkbox real */
+}
+
+.checkbox-custom {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ff6464;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-custom i {
+    font-size: 18px;
+    color: transparent;
+    transition: color 0.3s ease;
+}
+
+.checkbox-label input:checked + .checkbox-custom {
+    background-color: #28a745;
+    border-color: #ffffff;
+}
+
+.checkbox-label input:checked + .checkbox-custom i {
+    color: white;
+}
+
+form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form button:active {
+    background-color: #004494;
+}
+
+.success-message {
+    margin-bottom: 20px;
+    padding: 10px;
+    color: white;
+    background-color: #28a745;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.success-message.show {
+    opacity: 1;
+}
