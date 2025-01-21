@@ -36,6 +36,7 @@ button {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-left: 10px;
 }
 
 button:disabled {
@@ -61,6 +62,8 @@ button:hover {
 
 .switch-register p {
     margin-top: 15px;
+    position: relative;
+    color: #555;
 }
 
 .switch-register button {
@@ -68,6 +71,7 @@ button:hover {
     border: none;
     color: #007bff;
     cursor: pointer;
+    text-align: center;
 }
 
 .switch-register button:hover {
