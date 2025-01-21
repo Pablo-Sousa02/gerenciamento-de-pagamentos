@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import { FaUserCircle } from "react-icons/fa";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebaseConfig"; // Certifique-se de que este caminho está correto
+import { auth } from "../firebaseConfig";
 
 const Navbar = ({ user }) => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -47,9 +47,12 @@ const Navbar = ({ user }) => {
     return (
         <nav className="navbar">
             <div className="navbar-container">
+                {/* Logo */}
                 <Link to="/" className="navbar-logo">
                     Gerenciador
                 </Link>
+
+                {/* Menu Links */}
                 <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
                     <ul>
                         <li>
@@ -75,34 +78,28 @@ const Navbar = ({ user }) => {
                     </ul>
                 </div>
 
+                {/* Toggle Button for Mobile */}
                 <div className="navbar-toggle" onClick={handleMenuToggle}>
                     <span className={`toggle-icon ${menuOpen ? "open" : ""}`}>&#9776;</span>
                 </div>
 
-                {menuOpen && user && (
-                    <button onClick={handleLogout} className="hamburger-logout-btn">
-                        {loading ? "Desconectando..." : "Logout"}
-                    </button>
-                )}
-
+                {/* Dropdown for User Icon */}
                 <div className="user-icon" onClick={toggleDropdown}>
                     <FaUserCircle size={30} color="#fff" />
-                    {dropdownOpen && (
-                        <div className="dropdown-menu active">
-                            {user ? (
-                                <button onClick={handleLogout} className="dropdown-logout-btn">
-                                    {loading ? "Desconectando..." : "Logout"}
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={() => navigate("/login")}
-                                    className="dropdown-login-btn"
-                                >
-                                    Login
-                                </button>
-                            )}
-                        </div>
-                    )}
+                    <div className={`dropdown-menu ${dropdownOpen ? "active" : ""}`}>
+                        {user ? (
+                            <button onClick={handleLogout} className="dropdown-logout-btn">
+                                {loading ? "Desconectando..." : "Logout"}
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => navigate("/login")}
+                                className="dropdown-login-btn"
+                            >
+                                Login
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
         </nav>
